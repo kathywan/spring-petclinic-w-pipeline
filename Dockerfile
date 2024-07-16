@@ -1,6 +1,7 @@
 FROM amazoncorretto:21-al2023-jdk as BUILD
 COPY . /src
 WORKDIR /src
+RUN chmod +x ./gradlew
 RUN ./gradlew build
 
 FROM amazoncorretto:21-al2023-headful
