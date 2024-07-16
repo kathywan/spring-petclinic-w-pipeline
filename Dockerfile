@@ -1,4 +1,4 @@
-FROM amazoncorretto:21-al2023-jdk as BUILD
+FROM eclipse-temurin:21-jdk-jammy as BUILD
 COPY . /src
 WORKDIR /src
 RUN chmod +x ./gradlew
