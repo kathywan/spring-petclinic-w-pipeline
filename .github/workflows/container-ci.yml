@@ -43,11 +43,12 @@ jobs:
       - name: Docker Login
         uses: docker/login-action@v3
         with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          registry: ${{ vars.JFROG_SERVER }}
+          username: ${{ secrets.JFROG_USER }}
+          password: ${{ secrets.JFROG_TOKEN }}
         
       - name: Build and Push Docker images
         uses: docker/build-push-action@v6
         with:
-          tags: kathywan/spring-petclinic:${{ env.GHA_SHA }},kathywan/spring-petclinic:latest,kathywan/spring-petclinic:3.3.0-SNAPSHOT
+          tags: kathywan01.jfrog.io/docker-trial/spring-petclinic:${{ env.GHA_SHA }},kathywan01.jfrog.io/docker-trial/spring-petclinic:latest,kathywan01.jfrog.io/docker-trial/spring-petclinic:3.3.0-SNAPSHOT
           push: true
