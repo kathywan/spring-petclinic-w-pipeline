@@ -4,7 +4,7 @@ WORKDIR /src
 RUN chmod +x ./gradlew
 RUN ./gradlew build
 
-FROM amazoncorretto:21-al2023-headful
+FROM amazoncorretto:21-al2023-jdk
 EXPOSE 8080
 WORKDIR /app
 ARG JAR=spring-petclinic-3.3.0.jar
